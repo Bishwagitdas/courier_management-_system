@@ -27,8 +27,20 @@ if(isset($_SESSION['email'])){
 
  
 </head>
+<style>
+body {
+  
+  background-image: url("https://img.freepik.com/premium-vector/courier-with-parcel-background-delivery-service-van_327176-221.jpg?w=996");
+
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
 
 <body style="background-color:powderblue;" class="hold-transition login-page">
+
   <div class="login-box">
     <!-- /.login-logo -->
     

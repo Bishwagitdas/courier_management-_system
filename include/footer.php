@@ -3,7 +3,7 @@
            <!-- To the right -->
            
            <!-- Default to the left -->
-           <strong >Copyright &copy; <?= date('Y'); ?> Developed By Bishwagit Das 2021</a>.</strong> All rights reserved.
+           <strong >Copyright &copy; <?= date('Y'); ?> Developed By Bishwagit Das 2023</a>.</strong> All rights reserved.
        </footer>
        </div>
        <!-- ./wrapper -->
