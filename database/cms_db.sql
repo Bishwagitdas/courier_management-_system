@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2022 at 04:43 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Sep 04, 2023 at 07:55 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,17 +37,19 @@ CREATE TABLE `branches` (
   `country` text NOT NULL,
   `contact` varchar(100) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `branches`
 --
 
 INSERT INTO `branches` (`id`, `branch_code`, `street`, `city`, `state`, `zip_code`, `country`, `contact`, `date_created`) VALUES
-(4, 'dIbUK5mEh96f0Zc', 'Sample', 'Sample', 'Sample', '123456', 'Philippines', '+123456', '2020-11-27 13:31:49'),
-(5, 'JfVbO0UClGYkM1Q', 'Nazrul Avenue, Kandir Par, Cumilla', 'Cumilla', 'Cumilla', '3570', 'Bangladesh', '+8801580358565', '2022-03-18 00:11:16'),
-(9, '71dCHMBZiCIlOk3', 'Nazrul Avenue, Kandir Par, Cumilla', 'Cumilla', 'Cumilla', '3570', 'Bangladesh', '8801679487265', '2022-03-18 00:56:30'),
-(10, '6JwDoRziIsfzrMp', 'Zigatola, Dhanmodi, Dhaka', 'Dhaka', 'Dhaka', '1209', 'Bangladesh', '01679487265', '2022-03-19 22:01:40');
+(4, 'dIbUK5mEh96f0Zc', 'Rajshahi', 'Rajshahi', 'Rajshahi', '6000', 'Bangladesh', '01700000000', '2020-11-27 13:31:49'),
+(5, 'JfVbO0UClGYkM1Q', 'Naogaon', 'Rajshahi', 'Naogaon', '3500', 'Bangladesh', '01600000000', '2022-03-18 00:11:16'),
+(9, '71dCHMBZiCIlOk3', 'Bogura', 'Rajshahi', 'Bogura', '3400', 'Bangladesh', '01300000000', '2022-03-18 00:56:30'),
+(10, '6JwDoRziIsfzrMp', 'Dhaka', 'Dhaka', 'Dhaka', '1229', 'Bangladesh', '01800000000', '2022-03-19 22:01:40'),
+(11, '4pRffAQEkkIeQSR', 'Rangpur', 'Rangpur', 'Rangpur', '100', 'Bangladesh', '01600000000', '2023-04-03 11:59:22'),
+(12, 'UXaxLnenwVRRDf6', 'Munshiganj', 'Dhaka', 'Dhaka', '1200', 'Bangladesh', '01700000000', '2023-05-11 12:40:24');
 
 -- --------------------------------------------------------
 
@@ -74,18 +76,18 @@ CREATE TABLE `parcels` (
   `price` float NOT NULL,
   `status` int(2) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `parcels`
 --
 
 INSERT INTO `parcels` (`id`, `reference_number`, `sender_name`, `sender_address`, `sender_contact`, `recipient_name`, `recipient_address`, `recipient_contact`, `type`, `from_branch_id`, `to_branch_id`, `weight`, `height`, `width`, `length`, `price`, `status`, `date_created`) VALUES
-(24, '4931725841', 'Iqbal Hossen', 'Nazrul Avenue, Kandir Par, Cumilla', '01679487265', 'Sumaiya Akter', 'Poschimgaw, Laksham, Cumilla', '0147852665', 2, 4, 5, '10', '10', '25', '10', 100, 7, '2022-03-20 16:51:07'),
-(25, '3535554352', 'Iqbal Hossen', 'Nazrul Avenue, Kandir Par, Cumilla', '01679487265', 'Sumaiya Akter', 'Poschimgaw, Laksham, Cumilla', '0147852665', 2, 4, 5, '100', '15', '25', '25', 150, 1, '2022-03-20 16:51:07'),
-(27, '6737799077', 'Jannat', 'Chottogram', '01678965', 'Moriom Akter', 'Nazrul Avenue, Kandir Par, Cumilla', '0147852665', 2, 5, 9, '48', '56', '65', '98', 1000, 0, '2022-03-20 17:23:11'),
-(30, '8196229703', 'Abul Hasan', 'Dhaka', '0147852369', 'Abdul Karim', 'Cumilla', '0147852665', 1, 5, 0, '48', '56', '65', '98', 65, 9, '2022-03-20 17:29:25'),
-(31, '0649896049', 'Abul Hasan', 'Dhaka', '0147852369', 'Abdul Karim', 'Cumilla', '0147852665', 1, 5, 0, '48', '56', '65', '98', 150, 3, '2022-03-20 17:29:25');
+(24, '4931725841', 'Avi Das', 'Rangpur', '01700000002', 'Pritam Das', 'Naogaon', '01700000001', 2, 11, 5, '10', '10', '25', '10', 500, 7, '2022-03-20 16:51:07'),
+(25, '3535554352', 'Bappi Mondal', 'Naogaon', '01700000000', 'Bishwagit Das', 'Dhaka', '01700000000', 2, 5, 10, '100', '15', '25', '25', 350, 1, '2022-03-20 16:51:07'),
+(27, '6737799077', 'Nazmul Hassan', 'Dhaka', '01700000000', 'Sourav Hassan', 'Rangpur', '01700000000', 2, 5, 11, '48', '56', '65', '98', 100, 0, '2022-03-20 17:23:11'),
+(30, '8196229703', 'Pranto Mondal', 'Dhaka', '01600000000', 'Dip Mondal', 'Rajshahi', '01300000000', 2, 10, 4, '48', '56', '65', '98', 365, 9, '2022-03-20 17:29:25'),
+(31, '0649896049', 'Apu Das', 'Rajshahi', '01700000000', 'Tapu Das', 'Naogaon', '01800000000', 2, 4, 5, '48', '56', '65', '98', 200, 3, '2022-03-20 17:29:25');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,7 @@ CREATE TABLE `parcel_tracks` (
   `parcel_id` int(30) NOT NULL,
   `status` int(2) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `parcel_tracks`
@@ -138,14 +140,14 @@ CREATE TABLE `system_settings` (
   `contact` varchar(20) NOT NULL,
   `address` text NOT NULL,
   `cover_img` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `system_settings`
 --
 
 INSERT INTO `system_settings` (`id`, `name`, `email`, `contact`, `address`, `cover_img`) VALUES
-(1, 'Courier Management System', 'info@gmail.com', '+6948 8542 623', '2102  Caldwell Road, Rochester, New York, 14608', 'lum3n--RBuQ2PK_L8-unsplash.jpg');
+(1, 'Courier Management System', 'info@gmail.com', '+880170303030303', 'Dhaka 1229,Bangladesh', 'cms.jpg');
 
 -- --------------------------------------------------------
 
@@ -163,17 +165,20 @@ CREATE TABLE `users` (
   `type` tinyint(1) NOT NULL DEFAULT 2 COMMENT '1 = admin, 2 = staff',
   `branch_id` int(30) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `type`, `branch_id`, `date_created`) VALUES
-(4, 'Iqbal', 'Hossen', '', 'admin@gmail.com', '$2y$10$A5J8AYhN660pVUe5RYD8NOTxAIgWfbq1f3EVhmItJ8UE0tGisu8b2', 1, 0, '2022-03-17 20:22:46'),
-(5, 'Iqbal', 'Hossen', '+8801679487265', 'jmiqbal2019@gmail.com', '$2y$10$pipikhzWJjmLPooVqs0pH.lB7tSTUBbZSOTnMpw.2575j4AE6zm7e', 2, 5, '2022-03-18 01:55:28'),
-(6, 'Iqbal Hossan', 'Fazlay Rabbi', '01679487265', 'mdiqbalhossen7265@gmail.com', '$2y$10$CUBIrE/2vWZjTHqphzcALeUTFlsAEjDiv3S42ur/cFHbaZom7bo4C', 2, 5, '2022-03-18 01:56:57'),
-(8, 'Jahangir', 'Alam', '01478523694', 'jahangiralam@gmail.com', '$2y$10$xN3jOr3/G92IRwN8idLmA.5XteupcfmecEdayUbXkUCaqzpu3PL0C', 2, 10, '2022-03-21 00:31:53');
+(4, 'Bishwagit', 'Das', '01703030348', 'admin@gmail.com', '$2y$06$I5dyK1V5jd40bFa2.LV31uOXyuH8oGd6VYHkOH8ke8J/fnVgmmPwa', 1, 0, '2022-03-17 20:22:46'),
+(5, 'Pranto', 'mondal', '+8801600000000', 'pranto@gmail.com', '$2y$04$6Bec4IKH9EFnUYuLq5yuzuEZT1k47B.p4sTbuNBNXHd8sOW2BGnPG', 2, 5, '2022-03-18 01:55:28'),
+(6, 'Khalek', 'hassan', '+8801700000000', 'khalek@gmail.com', '$2y$10$CUBIrE/2vWZjTHqphzcALeUTFlsAEjDiv3S42ur/cFHbaZom7bo4C', 2, 10, '2022-03-18 01:56:57'),
+(8, 'habib', 'khan', '+8801600000000', 'habib@gmail.com', '$2y$10$xN3jOr3/G92IRwN8idLmA.5XteupcfmecEdayUbXkUCaqzpu3PL0C', 2, 9, '2022-03-21 00:31:53'),
+(9, 'Apu', 'Mondal', '+8801300000000', 'apu@gmail.com', '$2y$10$ljn/BctSQCoHAkdiiPhq1u354pHmv.zLlPvUnUiPP60ftp5kc9I7i', 2, 4, '2023-04-03 12:14:16'),
+(10, 'Pallob', 'Sarkar', '+8801900000000', 'pallob@gmail.com', '$2y$10$DCpzqJwSWN.mg2.Z/FzqB.aT5g5aO9/PUx5ziMM.H8JQpSXMVdlgm', 2, 11, '2023-04-03 12:15:26'),
+(11, 'Masum', 'Reza', '01600000001', 'masum@gmail.com', '$2y$10$CkQBx8dABaNbKmlZT6zPEupSfCu/qiQk5iVjAv/tSdIBuE2.Qg7Rm', 2, 12, '2023-05-11 12:41:17');
 
 --
 -- Indexes for dumped tables
@@ -220,7 +225,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `parcels`
@@ -244,7 +249,7 @@ ALTER TABLE `system_settings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
@@ -255,18 +260,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `parcels`
   ADD CONSTRAINT `parcels_ibfk_1` FOREIGN KEY (`from_branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `parcel_tracks`
---
-ALTER TABLE `parcel_tracks`
-  ADD CONSTRAINT `parcel_tracks_ibfk_1` FOREIGN KEY (`parcel_id`) REFERENCES `parcels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
